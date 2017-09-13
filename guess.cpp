@@ -6,8 +6,8 @@ using namespace std;
 
 int main(){
   int cpuNum;
-  int userGuess; 
-  string difficulty; 
+  int userGuess;
+  string difficulty;
   string Hard = "H";
   string Medium = "M";
   string Easy = "E";
@@ -41,6 +41,10 @@ if(userGuess == cpuNum){
     cout << "You were " << userGuess - cpuNum << " higher than the correct number. Sorry, you lose" << endl;
   }
      }
-  cout << "Would you like to play again?" << endl;
+  cout << "Would you like to play again? Y/N" << endl;
+  cin >> playInput;
+  if(playInput=="N"){
+    playAgain = false;
+  }
 }
 }
