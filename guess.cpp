@@ -9,9 +9,6 @@ int main(){
   int counter = 0;
   int userGuess;
   string difficulty;
-  string Hard = "H";
-  string Medium = "M";
-  string Easy = "E";
   srand (time(NULL));
   bool playAgain=true;
   string playInput;
@@ -19,20 +16,16 @@ int main(){
   cout << "Welcome to the guessing game. Which difficulty would you like?" << endl << "Easy = E" << endl << "Medium = M" << endl << "Hard = H" << endl;
   cin >> difficulty;
 
- if(difficulty == "E" || difficulty == "e" || difficulty == "H" || difficulty == "h" || difficulty == "m" || difficulty == "M"){
-   if(difficulty =="E"){
+  if(difficulty =="E" || difficulty == "e"){
      cpuNum = rand() % 2 + 1;
      maxNum = 2;
-  }
- if(difficulty =="M"){
+  }else  if(difficulty =="M" || difficulty == "m"){
   cpuNum = rand() % 10 + 1;
   maxNum = 10;
-  }
-if(difficulty =="H"){
+  }else if(difficulty =="H" || difficulty == "h"){
   cpuNum = rand() % 100 +1;
   maxNum = 100;
-  }
- }else{
+  }else{
   cout << "Invalid Input. Default difficulty Medium used." << endl;
   cpuNum = rand() % 10 +1;
   maxNum = 10;
@@ -52,8 +45,9 @@ if(userGuess == cpuNum){
 
   cout << "Would you like to play again? Y/N" << endl;
   cin >> playInput; 
-  if(playInput=="N" || "n"){
+  if(playInput=="N" || playInput == "n"){
     playAgain = false;
+    cout << "Game ended." << endl;
   }else if(playInput == "Y" || playInput == "y"){
   counter++;
   cout << "Round: " << counter << endl;
@@ -61,7 +55,6 @@ if(userGuess == cpuNum){
     cout << "Invalid Input. Game Over." << endl;
     playAgain = false;
   }
-  cout << "Thanks for playing. Game over!" << endl;
   }
 
 }
